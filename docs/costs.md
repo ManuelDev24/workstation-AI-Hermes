@@ -11,3 +11,6 @@
 2. **Costos estimados**: solo orientativos; leer `hermes status`/panel de Portal.
 3. **Topes reales del proveedor**: ninguno configurado por mí. No existe aquí un tope monetario estricto garantizado; si lo necesitas, configúralo en la consola del proveedor (límite de gasto) o usa solo bots deterministas.
 Métricas: `logs/metrics.jsonl` (duración, estado, error redactado) con rotación 1 MB × 3.
+
+## RAM
+Bots deterministas: procesos cortos (decenas de MB). `aiws-dev` usa un contenedor limitado a 512 MB, efímero y con vida de 120 s (idle ≈ 2 MB). OrbStack (≈0,8 GB RSS) ya corría antes por tus otros contenedores; si no lo necesitas, ciérralo con `orbctl stop`. Terminal: Ghostty (≈75 MB). Monitor programado: sin modelo, ejecución de segundos cada 30 min.
