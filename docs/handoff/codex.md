@@ -21,3 +21,5 @@ codex exec --sandbox workspace-write --skip-git-repo-check "<plantilla de tarea>
 codex exec --sandbox read-only "<pregunta de revisión>"                              # solo lectura
 ```
 Nunca uses `--dangerously-bypass-approvals-and-sandbox`.
+
+Verificado de extremo a extremo: Codex añadió `median()` con pruebas en una copia aislada; `scripts/aiws dev summary` entregó diff y pruebas en verde.

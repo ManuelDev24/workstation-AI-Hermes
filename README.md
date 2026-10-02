@@ -33,7 +33,7 @@ Datos de prueba: `scripts/aiws init-sample` (regenera `data/sample/`). Pon tus a
 | App de datos | `scripts/new_project.sh data-app mi-datos` | `cd projects/mi-datos && uv sync && uv run pytest -q && uv run ruff check .` | `uv run dataapp --serve` (puerto 8501) |
 
 Detén cualquier servidor con Ctrl+C (verificado: sin procesos ni puertos residuales). Plantillas = base de desarrollo, **no** aplicaciones listas para producción.
-Node: usa `eval "$(fnm env)" && fnm use 24` (o `.node-version` en el proyecto); no se modificó `~/.zshrc`.
+Node: `~/.zshrc` carga `fnm` (LTS 24 por defecto y `.node-version` por proyecto).
 Ejemplo requisito→implementación→prueba→revisión→entrega: `docs/example-flow.md`.
 
 ## Jupyter
