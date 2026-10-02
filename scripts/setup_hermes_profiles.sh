@@ -37,5 +37,4 @@ hermes -p "$P" config set terminal.docker_volumes "[\"$ROOT/state/dev:/tasks\"]"
 hermes -p "$P" config set terminal.cwd /tasks >/dev/null
 hermes -p "$P" config set terminal.container_memory 512 >/dev/null      # poca RAM
 hermes -p "$P" config set terminal.container_persistent false >/dev/null
-hermes -p "$P" config set terminal.lifetime_seconds 120 >/dev/null
 echo "ok $P (docker)"

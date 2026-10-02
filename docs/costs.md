@@ -13,4 +13,4 @@
 Métricas: `logs/metrics.jsonl` (duración, estado, error redactado) con rotación 1 MB × 3.
 
 ## RAM
-Bots deterministas: procesos cortos (decenas de MB). `aiws-dev` usa un contenedor limitado a 512 MB, efímero y con vida de 120 s (idle ≈ 2 MB). OrbStack (≈0,8 GB RSS) ya corría antes por tus otros contenedores; si no lo necesitas, ciérralo con `orbctl stop`. Terminal: Ghostty (≈75 MB). Monitor programado: sin modelo, ejecución de segundos cada 30 min.
+Bots deterministas: procesos cortos (decenas de MB). `aiws-dev` usa un contenedor limitado a 512 MB y efímero (idle ≈ 2 MB; Hermes lo detiene al terminar la sesión). OrbStack (≈0,8 GB RSS) ya corría antes por tus otros contenedores; si no lo necesitas, ciérralo con `orbctl stop`. Terminal: Ghostty (≈75 MB). Monitor programado: sin modelo, ejecución de segundos cada 30 min.
