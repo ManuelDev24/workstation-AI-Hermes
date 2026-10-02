@@ -17,6 +17,7 @@ Toolsets (tras `tools disable`): todos los perfiles sin browser, image_gen, tts,
 - Programación propuesta (no activada): `configs/hermes-cron.proposal.md`.
 - Limitación: la línea base de esquema es la primera observación; para reiniciarla borra `state/monitor/schemas.json`.
 ## 4 Asistente de desarrollo (`aiws-dev`)
+- **Aislamiento Docker:** el terminal de `aiws-dev` corre en `aiws-dev-sandbox:1` (Python 3.12 + pytest + ruff, `docker/dev-sandbox/Dockerfile`) con solo `state/dev` montado en `/tasks`. Flujo: `scripts/aiws dev prepare …` en el host → `cd state/dev && hermes -p aiws-dev chat -q "…"` (edita en `/tasks/<tarea>`) → `scripts/aiws dev summary …` en el host.
 - `prepare` copia `projects/<p>` a `state/dev/<tarea>` con **git propio** (rama `task/<tarea>`, baseline) → el original nunca se toca y no hay git anidado. `apply` aplica un parche tras `git apply --check`. `test` ejecuta pytest en la copia. `summary` = diff vs baseline + pruebas.
 - No hace commit/push/merge/despliegue en el repo real. Integrar los cambios es manual.
 - Modos (arquitectura, implementación, depuración, pruebas, revisión, documentación): `bots/dev-assistant/modes.md`. Un solo bot, sin multi-agente.

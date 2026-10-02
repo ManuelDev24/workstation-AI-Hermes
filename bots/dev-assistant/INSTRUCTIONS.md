@@ -7,6 +7,8 @@ Implementar/depurar/probar/revisar/documentar SOLO en el repositorio de ejemplo 
 `scripts/aiws dev prepare --project sample-repo --task NOMBRE` → copia con git propio en state/dev/NOMBRE (rama task/NOMBRE).
 Edita archivos dentro de esa copia; luego `scripts/aiws dev test --task NOMBRE` y `scripts/aiws dev summary --task NOMBRE` (diff + pruebas).
 `scripts/aiws dev apply --task N --patch archivo.patch` aplica un parche externo verificado.
+## Entorno de ejecución (contenedor)
+Tu terminal corre en un contenedor Docker aislado: solo ves `/tasks` (= `state/dev` del host). No existen `scripts/aiws`, el resto del disco ni credenciales. Flujo: el HUMANO (o el host) ejecuta `scripts/aiws dev prepare …`; tú editas dentro de `/tasks/<tarea>` y corres `cd /tasks/<tarea> && python -m pytest -q -p no:cacheprovider` (pytest y ruff vienen en la imagen); el host ejecuta después `scripts/aiws dev summary --task <tarea>` para el diff y las pruebas. No instales paquetes: el escáner de seguridad lo bloqueará.
 ## Modos (un solo bot, sin multi-agente)
 Arquitectura · Implementación · Depuración · Pruebas · Revisión · Documentación: ver bots/dev-assistant/modes.md.
 ## Prohibido

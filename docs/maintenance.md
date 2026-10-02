@@ -7,8 +7,8 @@
 - Reiniciar monitor: borra `state/monitor/*.json`.
 - Logs: rotan solos (bot.log 1 MB × 5; últimos 50 `run-*.log`; metrics 1 MB × 3).
 ## Revertir todo
-0. Si activaste el monitor: `hermes -p aiws-monitor cron remove aea4d41f1c35`.
-1. `scripts/teardown_hermes_profiles.sh` (solo perfiles `aiws-*`; el `default` no se toca).
+0. Monitor activo: `hermes -p aiws-monitor cron remove aea4d41f1c35`.
+1. (opcional) `docker rmi aiws-dev-sandbox:1`; `scripts/teardown_hermes_profiles.sh` (solo perfiles `aiws-*`; el `default` no se toca).
 2. `rm -rf ~/Developer/AI-Workstation` (cuando lo decidas) y, si quieres, `fnm uninstall 24`.
 Cambio en shell: una línea de `fnm env` añadida a `~/.zshrc` (respaldo `~/.zshrc.bak-aiws-*`; para revertir, restáurala). No se modificó la config global de git ni el perfil `default` de Hermes.
 ## Detener procesos

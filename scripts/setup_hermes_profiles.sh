@@ -26,3 +26,13 @@ for spec in "aiws-analyst|file-analyst|" "aiws-sql|sql-assistant|file code_execu
   cp "$ROOT/bots/$D/INSTRUCTIONS.md" "$SOUL"
   echo "ok $P"
 done
+# aiws-dev: terminal en contenedor Docker (OrbStack). Solo ve state/dev montado en /tasks; no ve el resto del disco.
+P=aiws-dev
+docker image inspect aiws-dev-sandbox:1 >/dev/null 2>&1 || docker build -q -t aiws-dev-sandbox:1 "$ROOT/docker/dev-sandbox" >/dev/null
+mkdir -p "$ROOT/state/dev"
+hermes -p "$P" config set terminal.backend docker >/dev/null
+hermes -p "$P" config set terminal.docker_image aiws-dev-sandbox:1 >/dev/null
+hermes -p "$P" config set terminal.docker_mount_cwd_to_workspace false >/dev/null
+hermes -p "$P" config set terminal.docker_volumes "[\"$ROOT/state/dev:/tasks\"]" >/dev/null
+hermes -p "$P" config set terminal.cwd /tasks >/dev/null
+echo "ok $P (docker)"

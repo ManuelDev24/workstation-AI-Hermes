@@ -27,7 +27,8 @@ Reproducible con `scripts/verify_all.sh` → «TODO OK». Núcleo: 26 pruebas py
 | Agente Hermes — Bot 4 (`aiws-dev`) | `prepare`→editó solo `state/dev/agent-test`→`test` verde→`summary`; original intacto, sin commit | ✅ (detectó `.pyc` en el diff → corregido) |
 | Agente Hermes — Bot 5 (`aiws-knowledge`) | «90 días», cita `politica_datos.md:3 § Retención` | ✅ |
 | Codex `exec --sandbox workspace-write` implementa una tarea en copia aislada | añadió `median()` + 3 pruebas; `aiws dev test` verde; diff de 2 archivos; original intacto; sin commits (20,8k tokens) | ✅ |
-| Monitor programado | job creado pausado; script ejecutado a mano exit 0; ejecución programada real pendiente de activación | ⏳ |
+| Monitor programado | job activo cada 30 min; script a mano exit 0; primera ejecución programada: ver docs/pending.md | ⏳ |
+| `aiws-dev` en Docker | `/Users` inexistente en el contenedor; edita en `/tasks/docker-test`; pytest dentro: 2 passed; `aiws dev summary` en host: diff + pruebas OK; original intacto | ✅ |
 | Node 24 por `.node-version` | `zsh -i` dentro de `web-react` y en `~` → v24.21.0 | ✅ |
 | Claude Code `-p` (revisión de solo lectura) | tras `claude auth login`: identificó el `ZeroDivisionError` de `average([])`; proyecto sin cambios. (Con `--permission-mode plan` la respuesta fue vacía de contenido → comando documentado sin plan mode) | ✅ |
 | Codex CLI `exec` solo lectura | revisó `sample-repo` e identificó el `ZeroDivisionError` (8.5k tokens); proyecto sin cambios | ✅ |

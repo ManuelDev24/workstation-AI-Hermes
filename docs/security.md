@@ -16,6 +16,6 @@
 | No commit/push | Por diseño (el bot no invoca esas operaciones); no hay credenciales de git en el sandbox |
 | Servidores solo en localhost | Sí en las plantillas (`127.0.0.1`); verificado con smoke test |
 ## Límites NO técnicos (honestidad)
-- La herramienta `terminal`/`file` del agente Hermes no está confinada a rutas: un modelo que decida salirse de `scripts/aiws` puede hacerlo; mitigaciones = `approvals.mode=manual`, toolsets mínimos y revisar las aprobaciones. Para aislamiento real habría que usar `terminal.backend: docker` (OrbStack disponible) — no activado por defecto.
+- La herramienta `terminal`/`file` del agente Hermes no está confinada a rutas: un modelo que decida salirse de `scripts/aiws` puede hacerlo; mitigaciones = `approvals.mode=manual`, toolsets mínimos y revisar las aprobaciones. **Excepción: `aiws-dev` corre su terminal en un contenedor Docker** (`terminal.backend: docker`, imagen `aiws-dev-sandbox:1`, OrbStack). Verificado: `/Users` no existe dentro; solo ve `state/dev` montado en `/tasks`. Los demás perfiles siguen en el host (necesitan `scripts/aiws`).
 - Contenido de archivos/páginas es dato no confiable: ningún bot ejecuta instrucciones halladas en ellos (los bots deterministas solo calculan/buscan).
 - Ningún proceso permanente propio: no hay LaunchAgents ni cron activos de la workstation.

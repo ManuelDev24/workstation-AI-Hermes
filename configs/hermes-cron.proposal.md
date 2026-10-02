@@ -1,4 +1,4 @@
-# Programación del monitor — CREADA Y PAUSADA
+# Programación del monitor — ACTIVA (reanudada con tu aprobación)
 Job `aea4d41f1c35` (perfil `aiws-monitor`, cada 30 min, sin modelo → 0 tokens, entrega `local`). El script está en `~/.hermes/profiles/aiws-monitor/scripts/aiws-monitor.sh` (Hermes lo resuelve por perfil) y llama a `scripts/aiws monitor`. Verificado a mano: exit 0.
 Hermes no permite ejecutar un job pausado (`cron run` responde «resume it before running»), así que la primera ejecución real ocurrirá al reanudarlo.
 ```
