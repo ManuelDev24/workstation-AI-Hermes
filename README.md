@@ -1,5 +1,7 @@
 # AI-Workstation
 
+![CI](https://github.com/ManuelDev24/workstation-AI-Hermes/actions/workflows/ci.yml/badge.svg)
+
 Workstation para análisis de datos, desarrollo y bots (Hermes Agent + Codex/Claude de forma manual/oficial).
 Mac M4 Pro · macOS 26 · Python 3.12 (uv) · Node 24 LTS (fnm). Todo local; nada expuesto a Internet.
 
