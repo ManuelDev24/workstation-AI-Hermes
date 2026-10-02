@@ -1,0 +1,19 @@
+# Configuración explícita de rutas y límites (sin secretos). Rutas relativas a la raíz del repo.
+input_dirs: [data/input, data/sample]   # única fuente de archivos que el Bot 1 puede leer
+output_dir: data/output
+report_dir: reports
+kb_dirs: [docs, data/sample/kb]          # única fuente del Bot 5
+dev_projects_dir: projects               # único origen del Bot 4
+sql_database: data/sample/sales.duckdb
+monitor_watch_dir: data/sample/monitor
+external_channels_enabled: false         # alertas externas deshabilitadas (no hay código que las envíe)
+limits:
+  max_file_mb: 20
+  max_rows: 1000000
+  sql_max_rows: 1000
+  sql_timeout_s: 10
+  run_timeout_s: 120
+  retries: 1
+  log_max_bytes: 1000000
+  log_backups: 5
+  keep_run_logs: 50

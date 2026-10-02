@@ -1,0 +1,4 @@
+#!/bin/sh
+# Wrapper: ejecuta aiws dentro del venv del proyecto, ignorando PYTHONPATH heredado (p. ej. de Hermes).
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+exec env -u PYTHONPATH -u PYTHONHOME uv run --project "$ROOT" aiws "$@"

@@ -1,0 +1,10 @@
+# PLANTILLA — no activa. Para conectar una base externa necesitas tu autorización y credenciales.
+# Requisitos de seguridad antes de activarla:
+#  1. Usa un usuario de BASE DE DATOS de solo lectura (el control real debe estar en el servidor).
+#  2. La URL va en .env (EXTERNAL_DB_URL), nunca aquí.
+#  3. Añade un adaptador en src/aiws/bots/sql_assistant.py que reutilice los mismos límites (filas, timeout).
+enabled: false
+engine: postgres            # postgres | mysql | duckdb-attach
+url_env: EXTERNAL_DB_URL    # nombre de variable, no el valor
+statement_timeout_s: 10
+max_rows: 1000
